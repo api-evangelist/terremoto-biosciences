@@ -1,17 +1,35 @@
 aid: terremoto-biosciences
 name: Terremoto Biosciences
-description: 'Terremoto Biosciences is a company surfaced via the API Evangelist harvest backlog (source:
-  secondary-market) and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Terremoto Biosciences is a privately held, clinical-stage biotechnology company based in South San
+  Francisco, California, building a covalent drug discovery and development engine around lysine-based
+  covalency. Founded in 2022 by veterans of Principia Biopharma and backed by OrbiMed and Third Rock
+  Ventures across Series A ($75M), Series B ($175M) and Series C ($108M) financings, the company designs
+  highly selective small-molecule medicines aimed both at improving on known drug targets and at reaching
+  targets previously considered undruggable. Its lead program, TER-2013, is an AKT1-selective inhibitor
+  granted FDA Fast Track designation for breast cancer, with additional work in oncology and hereditary
+  hemorrhagic telangiectasia. Terremoto is a therapeutics developer, not a software vendor: it publishes
+  no public API, developer portal, SDK or machine-readable API contract, and its public web surface is a
+  corporate marketing site covering science, pipeline, news and careers.
 url: https://raw.githubusercontent.com/api-evangelist/terremoto-biosciences/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment
 specificationVersion: '0.20'
 created: '2026-08-30'
 modified: '2026-08-30'
 tags:
 - Company
+- Biotechnology
+- Pharmaceuticals
+- Drug Discovery
+- Life Sciences
+- Oncology
+- Healthcare
+- Clinical Stage
+- Small Molecule
+image: https://terremotobio.com/wp-content/uploads/Terremoto_Footer_Logo.png
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +37,48 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/terremoto-biosciences-domain-security.yml
+- type: LLMsTxt
+  url: llms/terremoto-biosciences-llms.txt
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://terremotobio.com/
+- type: About
+  url: https://terremotobio.com/about/
+- type: Blog
+  url: https://terremotobio.com/news/
+- type: Support
+  url: https://terremotobio.com/contact/
+- type: TermsOfService
+  url: https://terremotobio.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://terremotobio.com/privacy/privacy-policy/
+x-enrichment:
+  date: '2026-08-30'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    Terremoto Biosciences is a clinical-stage covalent small-molecule drug developer whose entire
+    public surface is a WordPress marketing site (science, pipeline, news, careers) — every contract
+    probe missed (no OpenAPI/Swagger at the root, no /graphql, no /mcp, no agent card, and none of
+    api./developers./docs./portal.terremotobio.com resolve in DNS), leaving only the WordPress CMS's
+    own incidental /wp-json/ route index and an All in One SEO-generated llms.txt, neither of which
+    is a product API.
+  evidence:
+  - url: https://terremotobio.com/openapi.json
+    status: 404
+  - url: https://terremotobio.com/graphql
+    status: 404
+  - url: https://terremotobio.com/.well-known/agent-card.json
+    status: 404
+  - url: https://api.terremotobio.com/
+    status: 0
+  - url: https://terremotobio.com/llms.txt
+    status: 200
+  - url: https://terremotobio.com/wp-json/
+    status: 200
+  checked: '2026-08-30'
